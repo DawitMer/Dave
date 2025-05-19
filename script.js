@@ -23,12 +23,27 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
       loadingScreen.style.display = 'none';
       profileSelection.style.display = 'flex';
-      netflixSound.play().catch(e => console.log('Audio autoplay was prevented'));
+      // Audio will now play on first user interaction instead of auto-playing
     }, 1000);
   }, 2500);
   
+  // Add click event listener to the document to play sound on first interaction
+  let hasInteracted = false;
+  document.addEventListener('click', function() {
+    if (!hasInteracted && netflixSound) {
+      netflixSound.play().catch(e => console.log('Audio playback failed:', e));
+      hasInteracted = true;
+    }
+  }, { once: false });
+  
   // Profile Selection
   window.selectProfile = function(profile) {
+    // Try to play sound on profile selection (user interaction)
+    if (!hasInteracted && netflixSound) {
+      netflixSound.play().catch(e => console.log('Audio playback failed:', e));
+      hasInteracted = true;
+    }
+    
     profileSelection.classList.add('fade-out');
     setTimeout(() => {
       profileSelection.style.display = 'none';
