@@ -69,8 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (profile === 'hobbies') {
         hobbiesContent.classList.remove('hidden');
         hobbiesNav.classList.add('active');
-        // Initialize hobby tag game effects
-        initHobbyTagGameEffects();
       } else if (profile === 'contact') {
         contactContent.classList.remove('hidden');
         contactNav.classList.add('active');
@@ -174,43 +172,3 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(item);
   });
 });
-
-// Game-like flying button effects for hobby tags
-function initHobbyTagGameEffects() {
-  const hobbyTags = document.querySelectorAll('.hobby-tag');
-  
-  hobbyTags.forEach(tag => {
-    // Add mouse tracking for hover effect
-    tag.addEventListener('mouseover', function(e) {
-      // Generate random values for flying animation
-      const flyX = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 100 + 50);
-      const flyY = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 100 + 30);
-      const flyRotate = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 180);
-      
-      // Set custom properties for the animation
-      this.style.setProperty('--fly-x', `${flyX}px`);
-      this.style.setProperty('--fly-y', `${flyY}px`);
-      this.style.setProperty('--fly-rotate', `${flyRotate}deg`);
-      
-      // Play sound effect when hovering
-      if (netflixSound) {
-        netflixSound.currentTime = 0;
-        netflixSound.volume = 0.2;
-        netflixSound.play().catch(e => console.log('Audio playback failed:', e));
-      }
-    });
-    
-    // Add click effect
-    tag.addEventListener('click', function() {
-      // Trigger fly away animation
-      this.style.animation = 'flyAway 0.8s forwards cubic-bezier(0.165, 0.84, 0.44, 1)';
-      
-      // Reset after animation
-      setTimeout(() => {
-        this.style.animation = '';
-        this.style.transform = '';
-        this.style.opacity = '1';
-      }, 1000);
-    });
-  });
-}

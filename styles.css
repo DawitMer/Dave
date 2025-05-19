@@ -6,7 +6,7 @@
 }
 
 :root {
-  --primary-red: #c41320; /* Changed from #e50914 to a less bright red */
+  --primary-red: #e50914;
   --bg-dark: #111;
   --text-light: #f5f5f5;
   --accent-gray: #333;
@@ -36,12 +36,12 @@ body {
 
 .floating-skill {
   position: absolute;
-  color: rgba(196, 19, 32, 0.1); /* Changed from rgba(229, 9, 20, 0.1) */
+  color: rgba(229, 9, 20, 0.1);
   font-weight: bold;
   font-size: 2rem;
   animation: float-skill 15s linear infinite;
   opacity: 0;
-  text-shadow: 0 0 5px rgba(196, 19, 32, 0.3); /* Changed from rgba(229, 9, 20, 0.3) */
+  text-shadow: 0 0 5px rgba(229, 9, 20, 0.3);
 }
 
 @keyframes float-skill {
@@ -183,13 +183,13 @@ body {
 
 @keyframes pulse {
   0% {
-    text-shadow: 0 0 10px rgba(196, 19, 32, 0.5); /* Changed from rgba(229, 9, 20, 0.5) */
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
   }
   50% {
-    text-shadow: 0 0 20px rgba(196, 19, 32, 0.8); /* Changed from rgba(229, 9, 20, 0.8) */
+    text-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
   }
   100% {
-    text-shadow: 0 0 10px rgba(196, 19, 32, 0.5); /* Changed from rgba(229, 9, 20, 0.5) */
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
   }
 }
 
@@ -277,7 +277,7 @@ body {
 }
 
 .bg-orange {
-  background-color: var(--primary-red); /* Changed from #e50914 */
+  background-color: #e50914;
 }
 
 .profile-name {
@@ -371,7 +371,7 @@ body {
   font-size: 2.5rem;
   color: var(--primary-red);
   margin-bottom: 10px;
-  background: linear-gradient(90deg, var(--primary-red), #ff5f6d); /* Changed from #e50914 */
+  background: linear-gradient(90deg, #e50914, #ff5f6d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 3s ease infinite;
@@ -474,7 +474,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #a61019; /* Changed from #f40612 */
+  background-color: #f40612;
   transform: translateY(-2px);
 }
 
@@ -677,7 +677,7 @@ body {
 }
 
 .project-header {
-  background-color: rgba(196, 19, 32, 0.8); /* Changed from rgba(229, 9, 20, 0.8) */
+  background-color: rgba(229, 9, 20, 0.8);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -731,7 +731,7 @@ body {
 }
 
 .hobby-featured {
-  background: linear-gradient(135deg, rgba(196, 19, 32, 0.8) 0%, rgba(196, 19, 32, 0.6) 100%); /* Changed from rgba(229, 9, 20, 0.8) */
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.8) 0%, rgba(229, 9, 20, 0.6) 100%);
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
@@ -804,46 +804,11 @@ body {
   border-radius: 20px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: visible;
-  z-index: 1;
 }
 
 .hobby-tag:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-10px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Flying button effect */
-.hobby-tag::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  z-index: -1;
-  transform: scale(0);
-  transition: transform 0.3s ease;
-}
-
-.hobby-tag:hover::before {
-  transform: scale(1.5);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-/* Game-like interaction */
-@keyframes flyAway {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(var(--fly-x), var(--fly-y)) rotate(var(--fly-rotate)); opacity: 0; }
-}
-
-.hobby-tags {
-  perspective: 1000px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Hobby Cards Grid */
@@ -895,7 +860,7 @@ body {
 }
 
 .hobby-back {
-  background: linear-gradient(135deg, rgba(196, 19, 32, 0.9) 0%, rgba(196, 19, 32, 0.7) 100%); /* Changed from rgba(229, 9, 20, 0.9) */
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.9) 0%, rgba(229, 9, 20, 0.7) 100%);
   color: white;
   transform: rotateY(180deg);
   display: flex;
@@ -995,7 +960,6 @@ body {
   background-position: center;
   position: relative;
   color: white;
-  z-index: 1;
 }
 
 .location-card::before {
@@ -1006,7 +970,12 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: -1;
+  z-index: 1;
+}
+
+.location-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .york-university-card {
@@ -1015,7 +984,6 @@ body {
   background-position: center;
   position: relative;
   color: white;
-  z-index: 1;
 }
 
 .york-university-card::before {
@@ -1026,17 +994,17 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: -1;
+  z-index: 1;
+}
+
+.york-university-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .bell-canada-card {
-  background-image: url('bell_canada.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
   color: white;
-  z-index: 1;
 }
 
 .bell-canada-card::before {
@@ -1046,8 +1014,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: -1;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('bell_canada.png') no-repeat;
+  background-size: 50px;
+  background-position: top right 20px;
+  z-index: 1;
+}
+
+.bell-canada-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .addis-ababa-card {
@@ -1056,7 +1031,6 @@ body {
   background-position: center;
   position: relative;
   color: white;
-  z-index: 1;
 }
 
 .addis-ababa-card::before {
@@ -1067,38 +1041,19 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: -1;
-}
-
-.qa-program-card {
-  background-image: url('1087815.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  color: white;
   z-index: 1;
 }
 
-.qa-program-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: -1;
+.addis-ababa-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .ethio-lyrics-card {
-  background-image: url('begena_2_be4322.webp');
-  background-size: contain;
+  background-image: url('addis_ababa.jpeg');
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   position: relative;
-  color: white;
-  z-index: 1;
 }
 
 .ethio-lyrics-card::before {
@@ -1108,19 +1063,143 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+.ethio-lyrics-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.qa-program-card {
+  background-image: url('toronto_skyline.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+.qa-program-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.qa-program-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.developer-bg {
+  background-image: url('avatar.jpg');
+  background-size: cover;
+  background-position: center top;
+}
+
+.projects-bg {
+  background-image: url('1087815.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hobbies-bg {
+  background-image: url('begena_2_be4322.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-bg {
+  background-image: url('york_university.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Skill animation effects */
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(229, 9, 20, 0.3);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .profiles-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .profile {
+    margin: 0 20px 30px;
+  }
+  
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    padding-left: 0;
+    width: 100%;
+  }
+  
+  .timeline-dot {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-content {
+    width: 45%;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+    margin-right: 55px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-right: auto;
+    margin-left: 55px;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-date {
+    text-align: right;
+    padding-right: 55px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+    padding-left: 55px;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
   .header-content {
     flex-direction: column;
     align-items: center;
   }
   
   .logo {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   
   .nav {
@@ -1130,76 +1209,50 @@ body {
   
   .nav-item {
     margin: 0;
-    font-size: 0.9rem;
-  }
-  
-  .profiles-grid {
-    gap: 20px;
-  }
-  
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .timeline::before {
-    left: 15px;
-  }
-  
-  .timeline-dot {
-    left: 11px;
-  }
-  
-  .timeline-item {
-    padding-left: 40px;
   }
   
   .mobile-cta {
     display: block;
   }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .name-with-avatar {
+    flex-direction: column;
+  }
+  
+  .avatar-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 }
 
-@media (max-width: 480px) {
-  .profile-avatar {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .profile-name {
-    font-size: 1rem;
-  }
-  
-  .profile-description {
-    font-size: 0.8rem;
-  }
-  
-  .nav-item {
-    font-size: 0.8rem;
-  }
-  
-  .profile-name {
-    font-size: 2rem;
-  }
-  
-  .profile-title {
-    font-size: 1.2rem;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
-  .timeline-item {
-    padding-left: 35px;
-  }
-  
-  .timeline::before {
-    left: 12px;
-  }
-  
-  .timeline-dot {
-    left: 8px;
-    width: 8px;
-    height: 8px;
-  }
+/* Animation Classes */
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Profile Background Images */
+.recruiter-bg {
+  background-image: url('york_university.jpeg');
+}
+
+.other-bg, .contact-bg {
+  background-image: url('toronto_skyline.jpeg');
+}
+
+.projects-bg {
+  background-image: url('addis_ababa.jpeg');
+}
+
+
