@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (profile === 'hobbies') {
         hobbiesContent.classList.remove('hidden');
         hobbiesNav.classList.add('active');
+        // Initialize hobby tag game effects
+        initHobbyTagGameEffects();
       } else if (profile === 'contact') {
         contactContent.classList.remove('hidden');
         contactNav.classList.add('active');
@@ -172,3 +174,99 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(item);
   });
 });
+
+// Game-like flying button effects for hobby tags
+function initHobbyTagGameEffects() {
+  const hobbyTags = document.querySelectorAll('.hobby-tag');
+  
+  hobbyTags.forEach(tag => {
+    // Add mouse tracking for hover effect
+    tag.addEventListener('mouseover', function(e) {
+      // Generate random values for flying animation
+      const flyX = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 100 + 50);
+      const flyY = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 100 + 30);
+      const flyRotate = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 180);
+      
+      // Set custom properties for the animation
+      this.style.setProperty('--fly-x', `${flyX}px`);
+      this.style.setProperty('--fly-y', `${flyY}px`);
+      this.style.setProperty('--fly-rotate', `${flyRotate}deg`);
+      
+      // Play sound effect when hovering
+      if (netflixSound) {
+        netflixSound.currentTime = 0;
+        netflixSound.volume = 0.2;
+        netflixSound.play().catch(e => console.log('Audio playback failed:', e));
+      }
+    });
+    
+    // Add interactive 3D effect based on mouse position
+    tag.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Calculate percentage position
+      const mouseX = x / rect.width;
+      const mouseY = y / rect.height;
+      
+      // Apply tilt effect
+      const tiltX = (mouseY - 0.5) * 20;
+      const tiltY = (mouseX - 0.5) * -20;
+      
+      this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1) translateY(-10px)`;
+      
+      // Update light effect position
+      this.style.setProperty('--mouse-x', `${mouseX * 100}%`);
+      this.style.setProperty('--mouse-y', `${mouseY * 100}%`);
+    });
+    
+    // Reset transform on mouse out
+    tag.addEventListener('mouseout', function() {
+      this.style.transform = '';
+    });
+    
+    // Add click effect
+    tag.addEventListener('click', function() {
+      // Trigger fly away animation
+      this.style.animation = 'flyAway 0.8s forwards cubic-bezier(0.165, 0.84, 0.44, 1)';
+      
+      // Reset after animation
+      setTimeout(() => {
+        this.style.animation = '';
+        this.style.transform = '';
+        this.style.opacity = '1';
+      }, 1000);
+    });
+  });
+  
+  // Add 3D effect to hobby cards
+  const hobbyCards = document.querySelectorAll('.hobby-card.fancy');
+  
+  hobbyCards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Calculate percentage position
+      const mouseX = x / rect.width;
+      const mouseY = y / rect.height;
+      
+      // Apply subtle tilt effect
+      const tiltX = (mouseY - 0.5) * 10;
+      const tiltY = (mouseX - 0.5) * -10;
+      
+      this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(20px)`;
+      
+      // Update light effect position
+      this.querySelector('.hobby-front').style.setProperty('--mouse-x', `${mouseX * 100}%`);
+      this.querySelector('.hobby-front').style.setProperty('--mouse-y', `${mouseY * 100}%`);
+    });
+    
+    // Reset transform on mouse out
+    card.addEventListener('mouseout', function() {
+      this.style.transform = '';
+    });
+  });
+}
