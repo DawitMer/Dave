@@ -804,11 +804,46 @@ body {
   border-radius: 20px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
 }
 
 .hobby-tag:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Flying button effect */
+.hobby-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.hobby-tag:hover::before {
+  transform: scale(1.5);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Game-like interaction */
+@keyframes flyAway {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(var(--fly-x), var(--fly-y)) rotate(var(--fly-rotate)); opacity: 0; }
+}
+
+.hobby-tags {
+  perspective: 1000px;
 }
 
 /* Hobby Cards Grid */
@@ -1167,81 +1202,4 @@ body {
     width: 8px;
     height: 8px;
   }
-}
-
-/* Game-like flying buttons for hobbies section */
-.hobby-tag {
-  position: relative;
-  overflow: visible;
-  transition: all 0.3s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hobby-tag:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-10px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Flying button effect */
-.hobby-tag {
-  position: relative;
-  z-index: 1;
-}
-
-.hobby-tag::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  z-index: -1;
-  transform: scale(0);
-  transition: transform 0.3s ease;
-}
-
-.hobby-tag:hover::before {
-  transform: scale(1.5);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-/* Game-like interaction */
-@keyframes flyAway {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(var(--fly-x), var(--fly-y)) rotate(var(--fly-rotate)); opacity: 0; }
-}
-
-.hobby-tags {
-  perspective: 1000px;
-}
-
-/* Add 3D effect to hobby cards */
-.hobby-card.fancy {
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.hobby-card.fancy:hover {
-  transform: translateZ(20px);
-}
-
-/* Add particle effects for hobby cards */
-.hobby-front::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.2) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.hobby-card.fancy:hover .hobby-front::after {
-  opacity: 1;
 }
