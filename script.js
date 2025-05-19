@@ -18,45 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Skills background animation
   createSkillsBackground();
   
-  // Track if sound has been played
-  let soundPlayed = false;
-  
-  // Try to play sound on page load (may be blocked by browser)
-  if (netflixSound) {
-    netflixSound.play()
-      .then(() => {
-        soundPlayed = true;
-        console.log('Autoplay successful');
-      })
-      .catch(e => {
-        console.log('Autoplay was prevented by browser, will play on first interaction');
-      });
-  }
-  
-  // Fallback: Add global event listeners to play sound on first interaction if autoplay was blocked
-  if (netflixSound) {
-    const playOnFirstInteraction = function() {
-      if (!soundPlayed && netflixSound) {
-        netflixSound.play()
-          .then(() => {
-            soundPlayed = true;
-            console.log('Sound played on user interaction');
-          })
-          .catch(e => console.log('Audio playback failed even with interaction:', e));
-      }
-      
-      // Remove event listeners after first attempt
-      document.removeEventListener('click', playOnFirstInteraction);
-      document.removeEventListener('keydown', playOnFirstInteraction);
-      document.removeEventListener('touchstart', playOnFirstInteraction);
-    };
-    
-    // Add multiple event types to maximize chances of capturing first interaction
-    document.addEventListener('click', playOnFirstInteraction);
-    document.addEventListener('keydown', playOnFirstInteraction);
-    document.addEventListener('touchstart', playOnFirstInteraction);
-  }
-  
   // Add click event to logo/name to play sound
   if (logo) {
     logo.addEventListener('click', function(e) {
@@ -64,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset sound to beginning if it's already playing
         netflixSound.currentTime = 0;
         netflixSound.play().catch(e => console.log('Audio playback failed:', e));
-        soundPlayed = true;
       }
       // Continue with normal logo click behavior (back to profiles)
       backToProfiles();
