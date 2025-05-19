@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dawit Mersha - Computer Science Student and Software Developer Portfolio">
+  <meta name="theme-color" content="#e50914">
+  <meta property="og:title" content="Dawit Mersha - Netflix-Inspired Resume">
+  <meta property="og:description" content="Computer Science Student with experience in programming, technical troubleshooting, and system development.">
+  <meta property="og:type" content="website">
+  <title>Dawit Mersha - Netflix-Inspired Resume</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <!-- Skills Background Animation -->
+  <div class="skills-background"></div>
+  
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="netflix-loader">
+      <div class="netflix-loader-bar"></div>
+      <div class="netflix-loader-bar"></div>
+      <div class="netflix-loader-bar"></div>
+      <div class="netflix-loader-bar"></div>
+    </div>
+  </div>
+  
+  <!-- Profile Selection Screen -->
+  <div id="profileSelection" class="profile-selection fade-in">
+    <div class="page">
+      <div class="name-with-avatar">
+        <img src="avatar.jpg" alt="Dawit Mersha Avatar" class="avatar-image">
+        <h1>Dawit Mersha</h1>
+      </div>
+      <h2>What do you want to see?</h2>
+      
+      <div class="profiles-grid">
+        <div class="profile" onclick="selectProfile('professional')">
+          <div class="profile-avatar bg-blue profile-bg-image developer-bg">P</div>
+          <div class="profile-name">Journey</div>
+          <div class="profile-description">For hiring managers and recruiters</div>
+        </div>
+        
+        <div class="profile" onclick="selectProfile('projects')">
+          <div class="profile-avatar bg-purple profile-bg-image projects-bg">Pr</div>
+          <div class="profile-name">Projects</div>
+          <div class="profile-description">View my portfolio projects</div>
+        </div>
+        
+        <div class="profile" onclick="selectProfile('hobbies')">
+          <div class="profile-avatar bg-orange profile-bg-image hobbies-bg">H</div>
+          <div class="profile-name">Hobbies</div>
+          <div class="profile-description">Learn about my passions</div>
+        </div>
+        
+        <div class="profile" onclick="selectProfile('contact')">
+          <div class="profile-avatar bg-green profile-bg-image contact-bg">C</div>
+          <div class="profile-name">Contact Me</div>
+          <div class="profile-description">Get in touch</div>
+        </div>
+      </div>
+      
+      <div class="profile-motto">"Stay Hungry for Knowledge"</div>
+    </div>
+  </div>
+  
+  <!-- Content Screen -->
+  <div id="contentScreen" class="content-screen">
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo" onclick="backToProfiles()">
+            <img src="avatar.jpg" alt="Dawit Mersha Avatar" class="avatar-small">
+            <span>Dawit Mersha</span>
+          </div>
+          
+          <nav class="nav">
+            <div id="professionalNav" class="nav-item medium-font" onclick="selectProfile('professional')">Journey</div>
+            <div id="projectsNav" class="nav-item medium-font" onclick="selectProfile('projects')">Projects</div>
+            <div id="hobbiesNav" class="nav-item medium-font" onclick="selectProfile('hobbies')">Hobbies</div>
+            <div id="contactNav" class="nav-item medium-font" onclick="selectProfile('contact')">Contact Me</div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <main class="main-content container">
+      <!-- Journey Content (Merged Recruiter and Employer) -->
+      <div id="professionalContent" class="hidden">
+        <div class="profile-header">
+          <h1 class="profile-name">Dawit Mersha</h1>
+          <h2 class="profile-title">Computer Science Student</h2>
+          <p>Expected Graduation: Spring 2026</p>
+        </div>
+        
+        <div class="profile-summary">
+          I'm a fourth-year Bachelor of Engineering (Computer Science) student at York University with 4+ years of hands-on programming and web-development experience. I've built responsive sites using HTML, CSS, and JavaScript—leveraging React, Angular, and Vue.js—and architected back-end services with Firebase Realtime Database. From concept to launch, I designed and developed Ethio Lyrics, an Android app in Java/Android Studio, earning recognition from senior team members.
+
+          Beyond web and mobile, I've completed projects in database systems—designing schemas, optimizing queries, and ensuring data integrity—and explored Artificial Intelligence through hands-on work with Python, machine learning libraries, and AI workflows. I'm passionate about crafting engaging, user-friendly, and secure interfaces across platforms, and I thrive at the intersection of code, data, and intelligent automation.
+        </div>
+        
+        <div class="button-group" style="text-align: center; margin-bottom: 30px;">
+          <a href="resume.pdf" download class="btn">Download Resume</a>
+          <a href="https://linkedin.com/in/dawitymersha" target="_blank" class="btn btn-outline">LinkedIn</a>
+        </div>
+        
+        <div class="contact-section">
+          <h3 class="section-title">Contact Information</h3>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">dawitymersha@gmail.com</div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">9999999999</div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">👨‍💼</div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/dawitymersha</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="education-section">
+          <h3 class="section-title">Education & Certifications</h3>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2022 - 2026</div>
+              <div class="timeline-content york-university-card">
+                <h4>Bachelor of Engineering - BE Mathematics and Computer Science</h4>
+                <p>York University, Toronto, Canada</p>
+                <p>I have taken the following major courses during this time period:</p>
+                <ul>
+                  <li>Introduction to AI and Logic Programming</li>
+                  <li>Introduction to Database Systems</li>
+                  <li>Software Design</li>
+                  <li>Design and Analysis of Algorithms</li>
+                  <li>Fundamentals of Data Structures</li>
+                  <li>Software Tools</li>
+                  <li>Advanced Object Oriented Programming</li>
+                  <li>Computer Organization</li>
+                  <li>Introduction to the Theory of Computation</li>
+                  <li>Introduction to Logic for Computer Science</li>
+                  <li>Discrete Mathematics for Computer Science</li>
+                  <li>Introduction to Computing: A Net-centric Approach</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2021</div>
+              <div class="timeline-content qa-program-card">
+                <h4>Junior Security and QA Analyst Program with Cisco Introduction to Packet Tracer</h4>
+                <p>NPower Canada, Toronto, Canada & Cisco</p>
+                <ul>
+                  <li>Completed Junior Security and QA Analyst Program at NPower Canada</li>
+                  <li>Earned Cisco Introduction to Packet Tracer certification</li>
+                  <li>Gained skills in cybersecurity fundamentals and network simulation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2013 - 2017</div>
+              <div class="timeline-content">
+                <h4>High School Diploma A</h4>
+                <p>Lideta Catholic Cathedral School</p>
+                <p>Graduated with very great distinction.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="highlights-section">
+          <h3 class="highlights-title">General Information</h3>
+          
+          <div class="highlights-grid">
+            <div class="highlight-card location-card">
+              <h4 class="highlight-title">Location</h4>
+              <p class="highlight-content">Toronto, Ontario, Canada</p>
+            </div>
+            
+            <div class="highlight-card">
+              <h4 class="highlight-title">Languages</h4>
+              <p class="highlight-content">Amharic (Native), English (Full professional), French (Elementary)</p>
+            </div>
+            
+            <div class="highlight-card">
+              <h4 class="highlight-title">Communication Skills</h4>
+              <p class="highlight-content">Excellent communication skills, with proficiency in Amharic in both written and verbal communication</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="work-experience-section">
+          <h3 class="section-title">Work Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Jun 2022 - Sep 2022</div>
+              <div class="timeline-content bell-canada-card">
+                <h4>Bell Canada</h4>
+                <p>Toronto, Ontario, Canada</p>
+                <ul>
+                  <li>Installed and repaired customer equipment, such as Internet modems and IPTV, demonstrating technical proficiency and problem-solving skills.</li>
+                  <li>Engaged in direct customer service by contacting clients before and after service visits, ensuring high satisfaction levels.</li>
+                  <li>Explained and sold new and existing Bell products to customers, highlighting communication and sales skills.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">May 2021 - Dec 2021</div>
+              <div class="timeline-content">
+                <h4>Cashier</h4>
+                <p>Professional Book Fair, Toronto, Ontario, Canada</p>
+                <ul>
+                  <li>Managed cashier responsibilities, processing customer transactions efficiently and providing information on various books.</li>
+                  <li>Assisted in maintaining store order, ensuring a pleasant shopping environment for customers.</li>
+                  <li>Demonstrated strong interpersonal skills and the ability to handle customer inquiries effectively.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Nov 2017 - Nov 2019</div>
+              <div class="timeline-content addis-ababa-card">
+                <h4>Software Developer</h4>
+                <p>TechnoLab, Addis Ababa, Ethiopia</p>
+                <ul>
+                  <li>Provided technical support for software development projects, contributing to bug fixes and application performance enhancements.</li>
+                  <li>Assisted in the documentation process and integrated new applications into phone systems, improving organizational productivity.</li>
+                  <li>Collaborated on web development projects, utilizing HTML, CSS, and JavaScript to create and improve responsive web designs, ensuring optimal user experience across various devices.</li>
+                  <li>Offered customer support through phone and email, addressing technical issues and escalating complex problems to senior management.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        
+        <div class="technical-skills-section">
+          <h3 class="section-title">Technical Skills</h3>
+          
+          <div class="highlights-grid">
+            <div class="highlight-card">
+              <h4 class="highlight-title">Operating Systems</h4>
+              <p class="highlight-content">Kali Linux, Windows, Android, iOS, Mac OS</p>
+            </div>
+            
+            <div class="highlight-card">
+              <h4 class="highlight-title">Applications</h4>
+              <p class="highlight-content">Microsoft Office 365, G-Suite, Adobe Photoshop, Adobe Illustrator</p>
+            </div>
+            
+            <div class="highlight-card">
+              <h4 class="highlight-title">Tools</h4>
+              <p class="highlight-content">PentesterLab, Wireshark, TCPView, John the ripper, Oracle VM Virtual Box, SysInternalsSuite, Nmap/Zenmap, Eclipse, Visual Studio, Android Studio</p>
+            </div>
+            
+            <div class="highlight-card">
+              <h4 class="highlight-title">Project Management</h4>
+              <p class="highlight-content">Agile, Waterfall, Scrum and Gantt Charts, Kanban boards, Netspot</p>
+            </div>
+          </div>
+        </div>
+        
+        <h2 class="section-title">Programming Skills</h2>
+        
+        <h3 style="text-align: center; margin: 30px 0 10px; color: #e50914;">Backend</h3>
+        <div class="card-grid animated-grid">
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">Python</h4>
+            <p class="skill-description">Programming Language</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">Java</h4>
+            <p class="skill-description">Object-Oriented Programming</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">Node.js</h4>
+            <p class="skill-description">JavaScript Runtime</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">C++</h4>
+            <p class="skill-description">Programming Language</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">C</h4>
+            <p class="skill-description">Programming Language</p>
+          </div>
+        </div>
+        
+        <h3 style="text-align: center; margin: 30px 0 10px; color: #e50914;">Frontend</h3>
+        <div class="card-grid animated-grid">
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">HTML/CSS</h4>
+            <p class="skill-description">Web Markup & Styling</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">JavaScript</h4>
+            <p class="skill-description">Frontend Programming</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">React</h4>
+            <p class="skill-description">UI Library</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">Bootstrap</h4>
+            <p class="skill-description">CSS Framework</p>
+          </div>
+        </div>
+        
+        <h3 style="text-align: center; margin: 30px 0 10px; color: #e50914;">Databases</h3>
+        <div class="card-grid animated-grid">
+          <div class="skill-card">
+            <div class="skill-icon">🔴</div>
+            <h4 class="skill-title">MySQL</h4>
+            <p class="skill-description">Relational Database</p>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Projects Content -->
+      <div id="projectsContent" class="hidden">
+        <div class="profile-header">
+          <h1 class="profile-name">Dawit Mersha</h1>
+          <h2 class="profile-title">Projects Portfolio</h2>
+        </div>
+        
+        <div class="profile-summary">
+          Welcome to my projects portfolio! Here you'll find a selection of my work that demonstrates my skills in software development, web design, and problem-solving. Each project represents a unique challenge and showcases different aspects of my technical abilities.
+        </div>
+        
+        <div class="projects-section">
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">YorkU Parking Booking System</h3>
+              <div class="project-date">2025</div>
+            </div>
+            <div class="project-content">
+              <div class="project-description">
+                <p>Collaborated with a team of five students to design and develop a comprehensive Java-based parking management system for York University, enabling efficient booking and management of campus parking spaces.</p>
+                
+                <h4>Development Process:</h4>
+                <ul>
+                  <li>Analyzed requirements and created detailed use case diagrams</li>
+                  <li>Designed system architecture using UML class diagrams</li>
+                  <li>Implemented activity and sequence diagrams for key workflows</li>
+                  <li>Developed a GUI-based Java application with sensor integration</li>
+                  <li>Implemented user authentication and role-based access control</li>
+                </ul>
+                
+                <h4>Technical Implementation:</h4>
+                <ul>
+                  <li>Built with Java and object-oriented programming principles</li>
+                  <li>Implemented design patterns for maintainable, scalable code</li>
+                  <li>Created a database system for storing user, booking, and parking data</li>
+                  <li>Developed a sensor integration system for parking space monitoring</li>
+                  <li>Implemented payment processing with multiple payment options</li>
+                  <li>Created comprehensive test cases using Randoop for automated testing</li>
+                </ul>
+                
+                <div class="project-challenge-solution">
+                  <p><strong>Challenge:</strong> Designing a system that could handle complex relationships between different user types (students, faculty, staff, visitors) while maintaining data integrity and providing an intuitive interface for booking parking spaces.</p>
+                  <p><strong>Solution:</strong> Implemented a well-structured object-oriented design with appropriate class hierarchies and relationships, created a clean and intuitive UI with role-based access control, and developed a robust backend system for managing parking spaces and bookings.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Netflix-Inspired Resume Portfolio</h3>
+              <div class="project-date">2025</div>
+            </div>
+            <div class="project-content">
+              <div class="project-description">
+                <p>Conceptualized and developed this Netflix-inspired interactive resume portfolio from scratch, creating a unique digital presentation of my professional experience and skills that stands out from traditional resumes.</p>
+                
+                <h4>Development Process:</h4>
+                <ul>
+                  <li>Started with wireframing the Netflix-inspired UI concept and user flow</li>
+                  <li>Built the HTML structure with semantic markup for accessibility</li>
+                  <li>Implemented custom CSS animations and transitions for the Netflix loading effect</li>
+                  <li>Created the profile selection screen with interactive cards</li>
+                  <li>Developed the floating skills background animation using JavaScript</li>
+                </ul>
+                
+                <h4>Technical Implementation:</h4>
+                <ul>
+                  <li>Used CSS Grid and Flexbox for responsive layouts without frameworks</li>
+                  <li>Implemented the Intersection Observer API for scroll animations</li>
+                  <li>Created custom JavaScript for the dynamic skills background</li>
+                  <li>Optimized assets and animations for performance across devices</li>
+                  <li>Added audio integration with user interaction triggers</li>
+                  <li>Implemented 3D card effects using CSS transforms</li>
+                </ul>
+                
+                <div class="project-challenge-solution">
+                  <p><strong>Challenge:</strong> Creating a resume that functions both as a portfolio showcase and a professional presentation while maintaining the Netflix aesthetic without compromising content clarity.</p>
+                  <p><strong>Solution:</strong> Balanced the Netflix visual elements with clear information architecture, ensuring content remains accessible and professional while the interactive elements enhance rather than distract from the resume information.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Student Management System</h3>
+              <div class="project-date">2023</div>
+            </div>
+            <div class="project-content">
+              <div class="project-description">
+                <p>Created a comprehensive student management system for a local educational institution to track student enrollment, attendance, grades, and financial information.</p>
+                
+                <h4>Technologies Used:</h4>
+                <ul>
+                  <li>Python</li>
+                  <li>Django</li>
+                  <li>MySQL</li>
+                  <li>HTML/CSS/JavaScript</li>
+                  <li>Bootstrap</li>
+                </ul>
+                
+                <h4>Key Features:</h4>
+                <ul>
+                  <li>User role management (admin, teacher, student, parent)</li>
+                  <li>Course enrollment and scheduling</li>
+                  <li>Attendance tracking with reporting</li>
+                  <li>Grade management and transcript generation</li>
+                  <li>Financial tracking for tuition and fees</li>
+                  <li>Secure authentication and data protection</li>
+                </ul>
+                
+                <div class="project-challenge-solution">
+                  <p><strong>Challenge:</strong> Designing a system that could handle complex relationships between different entities (students, courses, teachers, grades) while maintaining data integrity and providing an intuitive interface for non-technical users.</p>
+                  <p><strong>Solution:</strong> Implemented a well-structured database design with appropriate relationships and constraints, created a clean and intuitive UI with role-based access control, and provided comprehensive documentation and training materials.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Ethio Lyrics</h3>
+              <div class="project-date">2019</div>
+            </div>
+            <div class="project-content ethio-lyrics-card">
+              <div class="project-description">
+                <p>Developed a mobile application for Android that provides lyrics for Ethiopian songs, allowing users to search, save favorites, and share lyrics with friends.</p>
+                
+                <h4>Technologies Used:</h4>
+                <ul>
+                  <li>Java</li>
+                  <li>Android Studio</li>
+                  <li>SQLite</li>
+                  <li>Firebase Realtime Database</li>
+                </ul>
+                
+                <h4>Key Features:</h4>
+                <ul>
+                  <li>User authentication and profile management</li>
+                  <li>Search functionality by artist, song title, or lyrics</li>
+                  <li>Offline access to saved lyrics</li>
+                  <li>Social sharing capabilities</li>
+                  <li>Regular content updates</li>
+                </ul>
+                
+                <div class="project-challenge-solution">
+                  <p><strong>Challenge:</strong> Creating an efficient search algorithm that could handle Amharic text and provide fast results even with limited device resources.</p>
+                  <p><strong>Solution:</strong> Implemented a custom indexing system that optimized search performance while maintaining a small application footprint.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hobbies Content -->
+      <div id="hobbiesContent" class="hidden">
+        <div class="profile-header">
+          <h1 class="profile-name">Dawit Mersha</h1>
+          <h2 class="profile-title">Hobbies</h2>
+        </div>
+        
+        <div class="profile-summary">
+          Beyond my professional and academic pursuits, I enjoy a variety of activities that help me maintain balance and broaden my perspectives. These hobbies reflect my personality and contribute to my creative thinking and problem-solving abilities.
+        </div>
+        
+        <div class="hobby-showcase">
+          <div class="hobby-featured">
+            <div class="hobby-featured-content">
+              <div class="hobby-featured-icon">🎵</div>
+              <h3 class="hobby-featured-title">Music</h3>
+              <p class="hobby-featured-description">
+                Exploring diverse genres and discovering new artists has always been my passion. I enjoy attending live concerts, creating curated playlists, and even dabbling in music production during my free time. Music helps me find inspiration and keeps me energized throughout the day.
+              </p>
+              <div class="hobby-tags">
+                <span class="hobby-tag">Concerts</span>
+                <span class="hobby-tag">Playlists</span>
+                <span class="hobby-tag">Production</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hobbies-grid">
+          <div class="hobby-card fancy">
+            <div class="hobby-card-inner">
+              <div class="hobby-front">
+                <div class="hobby-icon-large">🎬</div>
+                <h3 class="hobby-title">Film</h3>
+              </div>
+              <div class="hobby-back">
+                <p class="hobby-description">Appreciating cinema across cultures and time periods. I'm particularly interested in international films and documentaries that provide new perspectives on life and society.</p>
+                <div class="hobby-tags">
+                  <span class="hobby-tag">International</span>
+                  <span class="hobby-tag">Documentaries</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hobby-card fancy">
+            <div class="hobby-card-inner">
+              <div class="hobby-front">
+                <div class="hobby-icon-large">✈️</div>
+                <h3 class="hobby-title">Traveling</h3>
+              </div>
+              <div class="hobby-back">
+                <p class="hobby-description">Experiencing new cultures and exploring different places. I enjoy learning about local customs, trying regional cuisines, and capturing beautiful landscapes through photography.</p>
+                <div class="hobby-tags">
+                  <span class="hobby-tag">Cultures</span>
+                  <span class="hobby-tag">Photography</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hobby-card fancy">
+            <div class="hobby-card-inner">
+              <div class="hobby-front">
+                <div class="hobby-icon-large">🎙️</div>
+                <h3 class="hobby-title">Podcasts</h3>
+              </div>
+              <div class="hobby-back">
+                <p class="hobby-description">Listening to educational and thought-provoking content. I follow several tech and science podcasts to stay informed about the latest developments in my field and beyond.</p>
+                <div class="hobby-tags">
+                  <span class="hobby-tag">Tech</span>
+                  <span class="hobby-tag">Science</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hobby-card fancy">
+            <div class="hobby-card-inner">
+              <div class="hobby-front">
+                <div class="hobby-icon-large">📖</div>
+                <h3 class="hobby-title">Bible Reading</h3>
+              </div>
+              <div class="hobby-back">
+                <p class="hobby-description">Studying scripture and spiritual growth. I participate in regular study groups and enjoy exploring theological concepts and their applications in everyday life.</p>
+                <div class="hobby-tags">
+                  <span class="hobby-tag">Spirituality</span>
+                  <span class="hobby-tag">Community</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Content -->
+      <div id="contactContent" class="hidden">
+        <div class="profile-header">
+          <h1 class="profile-name">Dawit Mersha</h1>
+          <h2 class="profile-title">Contact Me</h2>
+        </div>
+        
+        <div class="profile-summary">
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to contact me using the form below or through my social media profiles.
+        </div>
+        
+        <div class="contact-form-section">
+          <h3 class="section-title">Send Me a Message</h3>
+          
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="contact-alternatives-section">
+          <h3 class="section-title">Other Ways to Connect</h3>
+          
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">dawitymersha@gmail.com</div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">9999999999</div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">👨‍💼</div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/dawitymersha</div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">💻</div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">github.com/dawitmersha</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Dawit Mersha. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- Netflix Sound -->
+  <audio id="netflixSound" src="netflix-intro.mp3" preload="auto"></audio>
+  
+  <script src="script.js"></script>
+</body>
+</html>
